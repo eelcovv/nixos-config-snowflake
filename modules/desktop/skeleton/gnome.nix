@@ -39,7 +39,7 @@ in {
       inherit (pkgs) dconf2nix;
       inherit (pkgs.gnome) polari gnome-disk-utility gnome-tweaks;
       inherit (pkgs.gnomeExtensions)
-        appindicator aylurs-widgets blur-my-shell dash-to-dock gsconnect
+        appindicator blur-my-shell dash-to-dock gsconnect
         just-perfection openweather # pop-shell
         removable-drive-menu rounded-window-corners space-bar user-themes;
     };
