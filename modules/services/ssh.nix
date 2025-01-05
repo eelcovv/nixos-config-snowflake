@@ -16,7 +16,7 @@ in {
       };
 
       hostKeys = [{
-        comment = "icy-thought@host";
+        comment = "eelco@host";
         path = "/etc/ssh/ed25519_key";
         rounds = 100;
         type = "ed25519";
@@ -24,7 +24,7 @@ in {
     };
 
     user.openssh.authorizedKeys.keyFiles =
-      if config.user.name == "icy-thought" then
+      if config.user.name == "eelco" then
         filter pathExists [
           "${config.user.home}/.ssh/id_ed25519.pub"
           "${config.user.home}/.ssh/id_rsa.pub"

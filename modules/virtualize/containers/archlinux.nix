@@ -10,7 +10,7 @@ in {
     virtualisation.libvirtd = {
       enable = true;
       qemuVerbatimConfig = ''
-        user = "icy-thought"
+        user = "eelco"
       '';
     };
 
@@ -27,7 +27,7 @@ in {
 
       filesConfig = {
         Volatile = false;
-        BindReadOnly = [ "/home/icy-thought:/mnt/icy-thought" ];
+        BindReadOnly = [ "/home/eelco:/mnt/icy-thought" ];
         Bind = [
           "/home/icy-thought/.container-arch:/home/icy-thought"
           "/run/user/1000/wayland-1"

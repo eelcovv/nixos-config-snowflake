@@ -26,7 +26,7 @@ in {
   config = {
     user = let
       user = builtins.getEnv "USER";
-      name = if builtins.elem user [ "" "root" ] then "icy-thought" else user;
+      name = if builtins.elem user [ "" "root" ] then "eelco" else user;
     in {
       inherit name;
       description = "Primary user account";
