@@ -40,7 +40,7 @@ in {
       inherit (pkgs.gnomeExtensions)
         appindicator blur-my-shell dash-to-dock gsconnect
         just-perfection 
-        removable-drive-menu rounded-window-corners space-bar user-themes;
+        removable-drive-menu space-bar user-themes;
     };
 
     environment.sessionVariables = {
