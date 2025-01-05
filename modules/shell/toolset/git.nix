@@ -101,8 +101,8 @@ in {
         credential.helper = "${pkgs.gitFull}/bin/git-credential-libsecret";
 
         user = {
-          name = "Icy-Thought";
-          email = "icy-thought@pm.me";
+          name = "eelcovv";
+          email = "eelcovv@gmail.com";
           signingKey = readFile "${config.user.home}/.ssh/id_ed25519.pub";
         };
 
@@ -127,7 +127,7 @@ in {
         url = {
           "https://github.com/".insteadOf = "gh:";
           "git@github.com:".insteadOf = "ssh+gh:";
-          "git@github.com:icy-thought/".insteadOf = "gh:/";
+          "git@github.com:eelcovv/".insteadOf = "gh:/";
           "https://gitlab.com/".insteadOf = "gl:";
           "https://gist.github.com/".insteadOf = "gist:";
           "https://bitbucket.org/".insteadOf = "bb:";
