@@ -40,7 +40,7 @@ in {
       inherit (pkgs.gnome) polari;
       inherit (pkgs.gnomeExtensions)
         appindicator blur-my-shell dash-to-dock gsconnect
-        just-perfection openweather # pop-shell
+        just-perfection 
         removable-drive-menu rounded-window-corners space-bar user-themes;
     };
 
