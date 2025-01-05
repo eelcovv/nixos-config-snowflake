@@ -28,7 +28,7 @@
         default = "firefox";
         firefox = {
           enable = true;
-          privacy.enable = true;
+          # privacy.enable = true;
         };
       };
       toolset = {
