@@ -10,8 +10,21 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  # boot.kernelModules = [ "kvm-amd" ]; turned off below
   boot.extraModulePackages = [ ];
+
+  # My own changes
+  boot.kernelParams = [
+    # HACK Disables fixes for spectre, meltdown, L1TF and a number of CPU
+    #   vulnerabilities for a slight performance boost. Don't copy this blindly!
+    #   And especially not for mission critical or server/headless builds
+    #   exposed to the world.
+    "mitigations=off"
+  ];
+
+  # Refuse ICMP echo requests on on desktops/laptops; nobody has any business
+  # pinging them.
+  boot.kernel.sysctl."net.ipv4.icmp_echo_ignore_broadcasts" = 1;
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/b4ea3c17-8309-499a-9ce4-4d2293cc7d0d";
@@ -38,4 +51,20 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # CPU
+  nix.settings.max-jobs = lib.mkDefault 16;
+  powerManagement.cpuFreqGovernor = "performance";
+
+  # :WARN| DISABLE NON-EXISTANT cpu
+  # hardware.cpu.amd.updateMicrocode = true;
+  # hardware.cpu.intel.updateMicrocode = true;
+
+  # Here we enable our custom modules (snowflake/modules)
+  modules.hardware = {
+    pipewire.enable = true;
+    bluetooth.enable = true;
+    pointer.enable = true;
+    printer.enable = true;
+  };
 }
