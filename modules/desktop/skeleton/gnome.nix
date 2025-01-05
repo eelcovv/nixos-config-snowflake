@@ -36,8 +36,7 @@ in {
     };
 
     user.packages = attrValues {
-      inherit (pkgs) dconf2nix gnome-disk-utility gnome-tweaks;
-      inherit (pkgs.gnome) polari;
+      inherit (pkgs) dconf2nix gnome-disk-utility gnome-tweaks polari;
       inherit (pkgs.gnomeExtensions)
         appindicator blur-my-shell dash-to-dock gsconnect
         just-perfection 
